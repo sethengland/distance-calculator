@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Distance Calculator</title>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    /* Custom Styles */
+    .result {
+      margin-top: 10px;
+    }
+  </style>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      width: 500px; /* Adjust the width as needed */
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="mb-4">Distance Calculator by Address</h1>
+  
+    <div class="mb-3">
+      <label for="addressA" class="form-label">Address A:</label>
+      <input type="text" id="addressA" class="form-control" placeholder="Enter address for Point A">
+    </div>
+  
+    <div class="mb-3">
+      <label for="addressB" class="form-label">Address B:</label>
+      <input type="text" id="addressB" class="form-control" placeholder="Enter address for Point B">
+    </div>
+  
+    <button onclick="calculateDistanceAddresses()" class="btn btn-primary">Calculate</button>
+  
+    <div id="resultByAddress" class="result"></div>
+  </div>
+  <div class="container mt-5">
+    <h1 class="mb-4">Distance Calculator by Coordinates</h1>
+    <div class="mb-3">
+
+      <label for="pointA">Point A (Latitude, Longitude):</label>
+      <input type="text" id="pointA" placeholder="Latitude, Longitude">
+    </div>
+    <div class="mb-3">
+      <label for="pointB">Point B (Latitude, Longitude):</label>
+      <input type="text" id="pointB" placeholder="Latitude, Longitude">
+    </div>
+
+    <button onclick="calculateDistanceCoords()" class="btn btn-primary">Calculate</button>
+
+    <div id="resultByCoords"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
