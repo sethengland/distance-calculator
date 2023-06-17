@@ -27,15 +27,18 @@ function calculateDistanceAddresses() {
 
 
 function getCoordinates(address, callback) {
-  var geocodingAPIKey = `4b08bae187cfa6236d10f3dc7b4ec4c2`
-  var geocodingEndpoint = `http://api.positionstack.com/v1/forward?access_key=${encodeURIComponent(geocodingAPIKey)}&query=${address}`;
-  fetch(geocodingEndpoint)
+  fetch('/api/proxy', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ address: address })
+  })
     .then(response => response.json())
     .then(data => {
-      if (data.data && data.data.length > 0) {
-        var result = data.data[0];
-        var latitude = result.latitude
-        var longitude = result.longitude
+      if (data) {
+        var latitude = data.latitude
+        var longitude = data.longitude
         callback(latitude, longitude);
       } else {
         callback(null);
